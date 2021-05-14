@@ -9,7 +9,9 @@
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "prettier": "prettier \"src/**/*.+(js|jsx|ts|tsx|json)\"",
-    "format": "yarn prettier --write"
+    "format": "yarn prettier --write",
+    "tsc": "tsc --noEmit",
+    "validate": "yarn prettier --check && yarn tsc && yarn lint"
   },
   "dependencies": {
     "react": "17.0.1",
