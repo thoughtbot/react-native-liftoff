@@ -1,4 +1,110 @@
 module.exports = {
   root: true,
-  extends: '@react-native-community',
-};
+  extends: [
+    "plugin:@typescript-eslint/recommended",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jest/recommended",
+  ],
+  parser: "@typescript-eslint/parser",
+  plugins: ["@typescript-eslint", "react", "react-hooks", "react-native"],
+  settings: {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"],
+    },
+    "import/resolver": {
+      typescript: {},
+    },
+    react: {
+      version: "detect",
+    },
+  },
+  parserOptions: {
+    ecmaVersion: 6,
+    sourceType: "module",
+    ecmaFeatures: {
+      jsx: true,
+      modules: true,
+    },
+  },
+  env: {
+    "react-native/react-native": true,
+    commonjs: true,
+    es6: true,
+    node: true,
+    mocha: true,
+  },
+  ignorePatterns: ["android/**", "ios/**", "*.js", "src/generated/**"],
+  rules: {
+    "eol-last": 2,
+    "no-import-assign": 1,
+    "no-constant-condition": 2,
+    "no-dupe-keys": 2,
+    "no-empty": 2,
+    "no-extra-boolean-cast": 2,
+    "no-prototype-builtins": 2,
+    "no-undef": 2,
+    "no-underscore-dangle": 2,
+    "no-unreachable": 2,
+    "no-unused-vars": [2, { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }],
+    "no-useless-escape": 2,
+    "no-console": 1,
+    "no-var": 2,
+    strict: [2, "global"],
+    "react-native/no-color-literals": 1,
+    "react-native/no-inline-styles": 0,
+    "react-native/no-raw-text": ["error", { skip: ["Trans"] }],
+    "react-native/no-unused-styles": 1,
+    "react/jsx-boolean-value": 2,
+    "react/jsx-key": 2,
+    "react/jsx-no-duplicate-props": 2,
+    "react/jsx-no-undef": 2,
+    "react/jsx-sort-props": 0,
+    "react/jsx-wrap-multilines": 2,
+    "react/no-deprecated": 1,
+    "react/no-did-mount-set-state": 1,
+    "react/no-did-update-set-state": 1,
+    "react/no-multi-comp": 0,
+    "react/no-string-refs": 1,
+    "react/prop-types": 0,
+    "react/react-in-jsx-scope": 2,
+    "react/self-closing-comp": 2,
+    "react/prefer-stateless-function": 2,
+    "@typescript-eslint/member-delimiter-style": 0,
+    "@typescript-eslint/no-var-requires": 0,
+    "@typescript-eslint/no-empty-function": [2, { allow: ["arrowFunctions"] }],
+    "@typescript-eslint/no-unused-vars": [
+      2,
+      { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+    ],
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-use-before-define": 0,
+    "@typescript-eslint/ban-ts-ignore": "off",
+  },
+  overrides: [
+    {
+      files: ["*.spec.js"],
+      rules: {
+        "react-native/no-raw-text": 0,
+      },
+    },
+    {
+      files: ["e2e/**/*.js"],
+      rules: {
+        "jest/expect-expect": 0,
+      },
+    },
+    {
+      files: ["*.ts", "*.tsx"],
+      rules: {
+        "@typescript-eslint/explicit-module-boundary-types": ["error"],
+      },
+    },
+  ],
+  globals: {
+    Response: "readonly",
+    RequestInfo: "readonly",
+    RequestInit: "readonly",
+  },
+}
