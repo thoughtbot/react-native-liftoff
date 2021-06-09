@@ -91,7 +91,7 @@ const TabBar: FC<TabBarProps> = ({
   const toTabButton = (tab: Tab, index: number): ReactNode => {
     const focusedRouteName = state.routeNames[state.index]
 
-    const tabIsFocused = (tab: Tab): boolean => {
+    const isTabFocused = (tab: Tab): boolean => {
       return tab.name === focusedRouteName
     }
 
@@ -104,17 +104,17 @@ const TabBar: FC<TabBarProps> = ({
     const isOnRootOfCurrentRoute =
       indexInCurrentRoute === 0 || indexInCurrentRoute === undefined
 
-    const focused = tabIsFocused(tab)
+    const isFocused = isTabFocused(tab)
 
     const handleOnPress = (): void => {
-      if (!focused) {
+      if (!isFocused) {
         tabNavigation.navigate(tab.name)
       } else if (!isOnRootOfCurrentRoute) {
         stackNavigation.popToTop()
       }
     }
 
-    const textColor = focused ? Colors.primary.brand : Colors.neutral.black
+    const textColor = isFocused ? Colors.primary.brand : Colors.neutral.black
 
     const { label, iconName } = determineConfig(tab)
     const widthScaleFactor = 0.9
@@ -129,11 +129,11 @@ const TabBar: FC<TabBarProps> = ({
         onPress={handleOnPress}
         style={Buttons.applyOpacity(tabButtonStyle)}
         accessibilityRole="button"
-        accessibilityState={focused ? { selected: true } : {}}
+        accessibilityState={isFocused ? { selected: true } : {}}
         key={index}
         testID={`${label}Tab`}
       >
-        <TabIcon isFocused={focused} iconName={iconName} />
+        <TabIcon isFocused={isFocused} iconName={iconName} />
         <Text
           allowFontScaling={false}
           numberOfLines={2}
