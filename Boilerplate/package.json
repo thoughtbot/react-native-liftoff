@@ -11,18 +11,22 @@
     "prettier": "prettier \"src/**/*.+(js|jsx|ts|tsx|json)\"",
     "format": "yarn prettier --write",
     "tsc": "tsc --noEmit",
-    "validate": "yarn prettier --check && yarn tsc && yarn lint"
+    "validate": "yarn prettier --check && yarn tsc && yarn lint",
+    "clean": "rm -rf node_modules && yarn cache clean && watchman watch-del-all && rm -rf /tmp/metro-bundler-cache-* && rm -rf /tmp/haste-map-react-native-packager-*"
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.11",
     "@react-navigation/native": "^5.9.4",
-    "react": "17.0.1",
-    "react-native": "0.64.0",
+    "@types/react": "^17",
+    "@types/react-native-vector-icons": "^6.4.6",
+    "react": "17.0.2",
+    "react-native": "0.64.2",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-reanimated": "^2.2.0",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-screens": "^3.3.0",
-    "react-native-typography": "^1.4.1"
+    "react-native-typography": "^1.4.1",
+    "react-native-vector-icons": "^8.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

@@ -1,9 +1,4 @@
-import {
-  TextStyle,
-  ViewStyle,
-  PressableStateCallbackType,
-  Platform,
-} from "react-native"
+import { TextStyle, ViewStyle, PressableStateCallbackType } from "react-native"
 
 import * as Colors from "./colors"
 import * as Outlines from "./outlines"

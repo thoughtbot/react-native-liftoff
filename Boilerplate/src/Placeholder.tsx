@@ -1,7 +1,8 @@
 import React, { FC } from "react"
 import { StyleSheet, Text, ScrollView, SafeAreaView } from "react-native"
 
-import { Sizing, Typography } from "../styles"
+import Icon from "react-native-vector-icons/Feather"
+import { Sizing, Typography } from "./styles"
 
 const Placeholder: FC = () => {
   return (
@@ -10,6 +11,7 @@ const Placeholder: FC = () => {
         style={style.container}
         contentContainerStyle={style.contentContainer}
       >
+        <Icon name="smile" size={Sizing.icons.x40} style={style.icon} />
         <Text style={style.text}>This is a placeholder component</Text>
       </ScrollView>
     </SafeAreaView>
@@ -29,6 +31,9 @@ const style = StyleSheet.create({
   text: {
     ...Typography.header.x70,
     textAlign: "center",
+  },
+  icon: {
+    marginBottom: Sizing.x30,
   },
 })
 
