@@ -60,7 +60,7 @@ module.exports = {
     endSection()
 
     startSection()
-    print.info('Made with ❤️  by:')
+    print.info('Made with ❤️ by:')
     thoughtbotAscii.forEach(line => {
       print.info(line)
     })

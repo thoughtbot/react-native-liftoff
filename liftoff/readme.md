@@ -1,25 +1,13 @@
 # liftoff CLI
 
-A CLI for liftoff.
+A CLI for starting up React Native apps fast.
 
-## Customizing your CLI
+## Installation
 
-Check out the documentation at https://github.com/infinitered/gluegun/tree/master/docs.
+`yarn global add liftoff-cli`
+or
+`npm -g install liftoff-cli`
 
-## Publishing to NPM
+## Usage
 
-To package your CLI up for NPM, do this:
-
-```shell
-$ npm login
-$ npm whoami
-$ npm lint
-$ npm test
-(if typescript, run `npm run build` here)
-$ npm publish
-```
-
-# License
-
-MIT - see LICENSE
-
+`liftoff new MyGreatApp`
