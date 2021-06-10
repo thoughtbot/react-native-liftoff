@@ -43,12 +43,14 @@ module.exports = {
 
     print.info('Installing yarn dependencies')
     await spawnProgress(`yarn install`)
-    print.info(`Renaming the boiletplate app to ${appName}`)
+
+    print.info(`Creating ${appName}`)
     await spawnProgress(`npx react-native-rename ${appName}`)
+
     print.info('Installing pods')
     await spawnProgress(`npx pod-install`)
 
-    print.info('Done')
+    print.info('Done!')
   }
 }
 
