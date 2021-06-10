@@ -29,7 +29,7 @@ const style = StyleSheet.create({
     justifyContent: "center",
   },
   text: {
-    ...Typography.header.x70,
+    ...Typography.bold.x70,
     textAlign: "center",
   },
   icon: {

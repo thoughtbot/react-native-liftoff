@@ -72,8 +72,8 @@ export const lineHeight: Record<LineHeight, TextStyle> = {
   },
 }
 
-type Header = "x10" | "x20" | "x30" | "x40" | "x50" | "x60" | "x70"
-export const header: Record<Header, TextStyle> = {
+type Bold = "x10" | "x20" | "x30" | "x40" | "x50" | "x60" | "x70"
+export const bold: Record<Bold, TextStyle> = {
   x10: {
     ...fontSize.x10,
     ...lineHeight.x10,
@@ -111,8 +111,8 @@ export const header: Record<Header, TextStyle> = {
   },
 }
 
-type Subheader = "x10" | "x20" | "x30" | "x40" | "x50"
-export const subheader: Record<Subheader, TextStyle> = {
+type Semibold = "x10" | "x20" | "x30" | "x40" | "x50"
+export const semibold: Record<Semibold, TextStyle> = {
   x10: {
     ...fontSize.x10,
     ...lineHeight.x10,
@@ -140,37 +140,32 @@ export const subheader: Record<Subheader, TextStyle> = {
   },
 }
 
-type Body = "x10" | "x20" | "x30" | "x40" | "x50"
-export const body: Record<Body, TextStyle> = {
+type Regular = "x10" | "x20" | "x30" | "x40" | "x50"
+export const regular: Record<Regular, TextStyle> = {
   x10: {
     ...fontSize.x10,
     ...lineHeight.x10,
     ...fontWeight.regular,
-    color: Colors.neutral.s800,
   },
   x20: {
     ...fontSize.x20,
     ...lineHeight.x20,
     ...fontWeight.regular,
-    color: Colors.neutral.s800,
   },
   x30: {
     ...fontSize.x30,
     ...lineHeight.x30,
     ...fontWeight.regular,
-    color: Colors.neutral.s800,
   },
   x40: {
     ...fontSize.x40,
     ...lineHeight.x40,
     ...fontWeight.regular,
-    color: Colors.neutral.s800,
   },
   x50: {
     ...fontSize.x50,
     ...lineHeight.x50,
     ...fontWeight.regular,
-    color: Colors.neutral.s800,
   },
 }
 
