@@ -1,8 +1,6 @@
 import { TextStyle, Platform } from "react-native"
 import { systemWeights } from "react-native-typography"
 
-import * as Colors from "./colors"
-
 type FontSize = "x10" | "x20" | "x30" | "x40" | "x50" | "x60" | "x70"
 export const fontSize: Record<FontSize, TextStyle> = {
   x10: {

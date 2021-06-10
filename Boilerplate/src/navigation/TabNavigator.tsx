@@ -186,7 +186,7 @@ const style = StyleSheet.create({
     marginBottom: Sizing.x10,
   },
   tabLabelText: {
-    ...Typography.body.x10,
+    ...Typography.regular.x10,
     textAlign: "center",
     maxWidth: Sizing.x80,
   },
