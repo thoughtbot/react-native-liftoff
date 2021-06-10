@@ -1,5 +1,16 @@
 import { print, GluegunToolbox } from 'gluegun'
 
+const line1 = `   __  __                      __    __  __          __ `
+const line2 = `  / /_/ /_  ____  __  ______ _/ /_  / /_/ /_  ____  / /_`
+const line3 = ` / __/ __ \\/ __ \\/ / / / __ \`/ __ \\/ __/ __ \\/ __ \\/ __/`
+const line4 = `/ /_/ / / / /_/ / /_/ / /_/ / / / / /_/ /_/ / /_/ / /_  `
+const line5 = `\\__/_/ /_/\\____/\\__,_/\\__, /_/ /_/\\__/_.___/\\____/\\__/  `
+const line6 = `                     /____/                             `
+
+const thoughtbotAscii = [line1, line2, line3, line4, line5, line6]
+
+const spaceBefore = '    '
+
 module.exports = {
   name: 'new',
   run: async (toolbox: GluegunToolbox) => {
@@ -13,9 +24,8 @@ module.exports = {
       return
     }
 
-    startSpinner('Starting')
-
-    print.newline()
+    startSection()
+    startSpinner('Lifting off')
 
     // Create directory with name of app
     await filesystem.dirAsync(appName)
@@ -26,26 +36,44 @@ module.exports = {
     // Change directory to app directory
     process.chdir(appName)
 
-    stopSpinner('Starting', '√')
+    stopSpinner('Lifting off', '🚀')
 
-    startSpinner('Installing yarn dependencies')
+    startSpinner('Installing Yarn dependencies')
     await spawnProgress(`yarn install`)
-    stopSpinner('Installing yarn dependencies', '√')
+    stopSpinner('Installing Yarn dependencies', '🧶')
 
-    print.newline()
-
-    print.info(`Creating ${appName}`)
+    startSpinner(`Creating ${appName}`)
     await spawnProgress(`npx react-native-rename ${appName}`)
+    stopSpinner(`Creating ${appName}`, '🦄')
 
-    print.newline()
+    startSpinner('Installing Pods')
+    await spawnProgress(`npx pod-install --repo-update`)
+    stopSpinner('Installing Pods', '🍫')
 
-    print.info('Installing pods')
-    await spawnProgress(`npx pod-install`)
+    print.info(spaceBefore + ' 🎉 Done!')
+    endSection()
 
-    print.newline()
+    startSection()
+    print.info('How to get started:')
+    print.info(`1. Change directory to ${appName}/`)
+    print.info("2. Run 'yarn ios' or 'yarn android' to start the app")
+    endSection()
 
-    print.info('Done!')
+    startSection()
+    print.info('Made with ❤️  by:')
+    thoughtbotAscii.forEach(line => {
+      print.info(line)
+    })
+    endSection()
   }
+}
+
+const startSection = () => {
+  print.newline()
+}
+const endSection = () => {
+  print.newline()
+  print.divider()
 }
 
 const copyBoilerplate = (toolbox: GluegunToolbox, appName: string): void => {
@@ -105,7 +133,10 @@ const spinners: { [key: string]: Spinner } = {}
 export const startSpinner = (m = '') => {
   let spinner = spinners[m]
   if (!spinner) {
-    spinner = print.spin({ prefixText: '   ', text: print.colors.gray(m) })
+    spinner = print.spin({
+      prefixText: spaceBefore,
+      text: print.colors.gray(m)
+    })
     spinners[m] = spinner
   }
   return spinner
