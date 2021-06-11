@@ -21,15 +21,20 @@
     "@react-navigation/stack": "^5.14.5",
     "@types/react": "^17",
     "@types/react-native-vector-icons": "^6.4.6",
+    "formik": "^2.2.9",
     "react": "17.0.2",
     "react-native": "0.64.2",
+    "react-native-encrypted-storage": "^4.0.2",
     "react-native-gesture-handler": "^1.10.3",
+    "react-native-keyboard-aware-scroll-view": "^0.9.4",
     "react-native-reanimated": "^2.2.0",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-screens": "^3.3.0",
     "react-native-static-safe-area-insets": "^2.1.1",
+    "react-native-svg": "^12.1.1",
     "react-native-typography": "^1.4.1",
-    "react-native-vector-icons": "^8.1.0"
+    "react-native-vector-icons": "^8.1.0",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
