@@ -80,7 +80,7 @@ const copyBoilerplate = (toolbox: GluegunToolbox, appName: string): void => {
   const { meta, filesystem } = toolbox
   const { remove, path, copyAsync } = filesystem
 
-  const liftoffPath = path(meta.src || '', '..')
+  const liftoffPath = path(meta.src || '', '.')
   const boilerplatePath = path(liftoffPath, '../BoilerplateApp')
 
   remove(path(boilerplatePath, 'ios', 'Pods'))
@@ -94,10 +94,13 @@ const copyBoilerplate = (toolbox: GluegunToolbox, appName: string): void => {
   })
 
   const copyPromises = copyTargets.map(copyTarget => {
-    copyAsync(path(boilerplatePath, copyTarget), path(appName, copyTarget))
+    copyAsync(
+      path(boilerplatePath, copyTarget),
+      path(appName, copyTarget)
+    ).catch(error => print.error(error))
   })
 
-  Promise.all(copyPromises)
+  Promise.all(copyPromises).catch(error => print.error(error))
 }
 
 export type SpawnOptions = {
