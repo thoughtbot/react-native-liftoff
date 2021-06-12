@@ -1,4 +1,4 @@
-import React, { FC, RefObject } from "react"
+import React, { forwardRef, ForwardRefRenderFunction } from "react"
 import { StyleSheet, View, Text, TextInput, TextInputProps } from "react-native"
 
 import FieldErrors from "./FieldErrors"
@@ -11,18 +11,12 @@ interface TextFieldProps extends TextInputProps {
   value: string
   updateValue: (value: string) => void
   noMarginBottom?: boolean
-  ref?: RefObject<TextInput>
 }
 
-const TextField: FC<TextFieldProps> = ({
-  label,
-  errors,
-  value,
-  updateValue,
-  noMarginBottom,
+const TextField: ForwardRefRenderFunction<TextInput, TextFieldProps> = (
+  { label, errors, value, updateValue, noMarginBottom, ...props },
   ref,
-  ...props
-}) => {
+) => {
   const inputContainerStyle = {
     ...style.inputContainer,
     ...(noMarginBottom && { marginBottom: 0 }),
@@ -55,4 +49,4 @@ const style = StyleSheet.create({
   },
 })
 
-export default TextField
+export default forwardRef(TextField)
