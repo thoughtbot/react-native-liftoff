@@ -19,3 +19,10 @@ export const TabRoutes: Routes<TabRoute> = {
   Tab2: "Tab2",
   Tab3: "Tab3",
 }
+
+type UnauthenticatedRoute = "SignIn" | "SignUp"
+
+export const UnauthenticatedRoutes: Routes<UnauthenticatedRoute> = {
+  SignIn: "SignIn",
+  SignUp: "SignUp",
+}
