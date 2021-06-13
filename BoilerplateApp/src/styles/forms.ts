@@ -11,8 +11,7 @@ export const input: Record<Input, TextStyle> = {
     ...Typography.regular.x30,
     lineHeight: 0,
     padding: Sizing.x20,
-    borderColor: Colors.neutral.s300,
-    borderWidth: Outlines.borderWidth.hairline,
+    backgroundColor: Colors.neutral.s100,
     borderRadius: Outlines.borderRadius.small,
   },
 }
