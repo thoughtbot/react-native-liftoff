@@ -9,7 +9,7 @@ const line6 = `                     /____/                             `
 
 const thoughtbotAscii = [line1, line2, line3, line4, line5, line6]
 
-const spaceBefore = '    '
+const spaceBefore = ' '
 
 module.exports = {
   name: 'new',
@@ -54,19 +54,19 @@ module.exports = {
     endSection()
 
     startSection()
-    print.colors.blue('To get started:')
-    print.info(`  cd ${appName}`)
-    print.info('  yarn ios')
-    print.info('  yarn android')
+    print.success(' To get started:')
+    print.info(`   cd ${appName}`)
+    print.info('   yarn ios')
+    print.info('   yarn android')
     endSection()
 
     startSection()
-    print.info('Made with <3 by:')
-    thoughtbotAscii.forEach((line) => {
-      print.info(line)
+    print.info(' Made with <3 by:')
+    thoughtbotAscii.forEach(line => {
+      print.info(' ' + line)
     })
     endSection()
-  },
+  }
 }
 
 const startSection = () => {
@@ -74,7 +74,6 @@ const startSection = () => {
 }
 const endSection = () => {
   print.newline()
-  print.divider()
 }
 
 const copyBoilerplate = (toolbox: GluegunToolbox, appName: string): void => {
@@ -91,17 +90,17 @@ const copyBoilerplate = (toolbox: GluegunToolbox, appName: string): void => {
     matching: '*',
     directories: true,
     recursive: false,
-    files: true,
+    files: true
   })
 
-  const copyPromises = copyTargets.map((copyTarget) => {
+  const copyPromises = copyTargets.map(copyTarget => {
     copyAsync(
       path(boilerplatePath, copyTarget),
       path(appName, copyTarget)
-    ).catch((error) => print.error(error))
+    ).catch(error => print.error(error))
   })
 
-  Promise.all(copyPromises).catch((error) => print.error(error))
+  Promise.all(copyPromises).catch(error => print.error(error))
 }
 
 export type SpawnOptions = {
@@ -118,15 +117,15 @@ const spawnProgress = (
     const spawned = require('cross-spawn')(args[0], args.slice(1), options)
     const output = []
 
-    spawned.stdout.on('data', (data) => {
+    spawned.stdout.on('data', data => {
       data = data.toString()
       return options?.onProgress ? options.onProgress(data) : output.push(data)
     })
-    spawned.stderr.on('data', (data) => output.push(data))
-    spawned.on('close', (code) =>
+    spawned.stderr.on('data', data => output.push(data))
+    spawned.on('close', code =>
       code === 0 ? resolve(output.join('')) : reject(output.join(''))
     )
-    spawned.on('error', (err) => reject(err))
+    spawned.on('error', err => reject(err))
   })
 }
 
@@ -139,7 +138,7 @@ export const startSpinner = (m = '') => {
   if (!spinner) {
     spinner = print.spin({
       prefixText: spaceBefore,
-      text: print.colors.gray(m),
+      text: print.colors.gray(m)
     })
     spinners[m] = spinner
   }
@@ -155,7 +154,7 @@ export const stopSpinner = (m: string, symbol: string) => {
 }
 
 export const clearSpinners = () => {
-  Object.keys(spinners).forEach((m) => {
+  Object.keys(spinners).forEach(m => {
     spinners[m].stop()
     delete spinners[m]
   })
