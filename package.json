@@ -1,6 +1,6 @@
 {
   "name": "liftoff-cli",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Liftoff CLI",
   "private": false,
   "types": "build/types/types.d.ts",
