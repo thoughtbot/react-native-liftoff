@@ -9,7 +9,7 @@ const line6 = `                     /____/                             `
 
 const thoughtbotAscii = [line1, line2, line3, line4, line5, line6]
 
-const spaceBefore = '    '
+const spaceBefore = ' '
 
 module.exports = {
   name: 'new',
@@ -23,6 +23,8 @@ module.exports = {
       print.error('You must provide a name')
       return
     }
+
+    print.divider()
 
     startSection()
     startSpinner('Lifting off')
@@ -54,17 +56,24 @@ module.exports = {
     endSection()
 
     startSection()
-    print.info('How to get started:')
-    print.info(`1. Change directory to ${appName}/`)
-    print.info("2. Run 'yarn ios' or 'yarn android' to start the app")
+    print.success(spaceBefore + 'To get started:')
+    print.info(spaceBefore + `  cd ${appName}`)
+    print.info(spaceBefore + '  yarn ios')
+    print.info(spaceBefore + '  yarn android')
     endSection()
 
     startSection()
-    print.info('Made with ❤️ by:')
+    print.info(spaceBefore + 'Made with <3 by:')
     thoughtbotAscii.forEach(line => {
-      print.info(line)
+      print.info(' ' + line)
     })
     endSection()
+
+    print.error(spaceBefore + 'https://thoughtbot.com')
+
+    endSection()
+
+    print.divider()
   }
 }
 
@@ -73,7 +82,6 @@ const startSection = () => {
 }
 const endSection = () => {
   print.newline()
-  print.divider()
 }
 
 const copyBoilerplate = (toolbox: GluegunToolbox, appName: string): void => {
