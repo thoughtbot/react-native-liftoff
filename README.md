@@ -70,8 +70,3 @@ See [our other projects][community] or
 
 [community]: https://thoughtbot.com/community?utm_source=github
 [hire]: https://thoughtbot.com/hire-us?utm_source=github
-
-Should we say anything about this being inspired by [Ignite](https://github.com/infinitered/ignite)?
-
-Also should we mention
-
