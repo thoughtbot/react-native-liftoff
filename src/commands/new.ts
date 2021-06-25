@@ -24,6 +24,8 @@ module.exports = {
       return
     }
 
+    print.divider()
+
     startSection()
     startSpinner('Lifting off')
 
@@ -54,18 +56,24 @@ module.exports = {
     endSection()
 
     startSection()
-    print.success(' To get started:')
-    print.info(`   cd ${appName}`)
-    print.info('   yarn ios')
-    print.info('   yarn android')
+    print.success(spaceBefore + 'To get started:')
+    print.info(spaceBefore + `  cd ${appName}`)
+    print.info(spaceBefore + '  yarn ios')
+    print.info(spaceBefore + '  yarn android')
     endSection()
 
     startSection()
-    print.info(' Made with <3 by:')
+    print.info(spaceBefore + 'Made with <3 by:')
     thoughtbotAscii.forEach(line => {
       print.info(' ' + line)
     })
     endSection()
+
+    print.error(spaceBefore + 'https://thoughtbot.com')
+
+    endSection()
+
+    print.divider()
   }
 }
 
