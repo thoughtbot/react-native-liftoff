@@ -13,6 +13,7 @@ import Placeholder from "../Placeholder"
 
 import Icon from "react-native-vector-icons/Feather"
 import { Colors, Sizing, Outlines, Typography, Buttons } from "../styles"
+import GithubRepos from "../GithubRepos"
 
 type TabButtonConfig = {
   label: string
@@ -50,7 +51,7 @@ type Tab = {
 const TabNavigator: FC = () => {
   const documentsTab = {
     name: TabRoutes.Tab1,
-    component: Placeholder,
+    component: GithubRepos,
   }
   const shareTab = {
     name: TabRoutes.Tab2,
