@@ -1,5 +1,7 @@
 # React Native Liftoff 🚀
 
+This project is no longer maintained. Use our newer project, [Belt](https://github.com/thoughtbot/belt), instead.
+
 A CLI for starting up React Native apps, fast.
 
 Installation
